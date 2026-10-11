@@ -1,0 +1,27 @@
+# General / Node
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log*
+.pnpm-debug.log*
+
+# Angular build output
+/dist/
+/tmp/
+/out-tsc/
+/bazel-out/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Angular local cache / build files
+/.angular/
+.angular/cache/
+
+# Local environment files (si tuvieras claves privadas)
+.env

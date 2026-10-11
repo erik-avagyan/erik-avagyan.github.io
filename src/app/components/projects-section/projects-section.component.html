@@ -1,0 +1,62 @@
+<section id="proyectos" class="mx-auto max-w-5xl border-t border-white/10 px-6 py-16">
+  <div class="mb-8 flex flex-col justify-between md:flex-row md:items-end">
+    <div>
+      <span class="text-xs font-semibold uppercase tracking-widest text-[#2997ff]">{{ i18n.translate('Portfolio') }}</span>
+      <h2 class="mt-1 text-3xl font-bold text-white">{{ i18n.translate('Proyectos Destacados') }}</h2>
+    </div>
+
+    <div class="mt-4 flex flex-wrap gap-2 md:mt-0" [attr.aria-label]="i18n.language() === 'es' ? 'Filtrar proyectos' : 'Filter projects'">
+      @for (category of categories; track category) {
+        <button
+          (click)="selectedCategory.set(category)"
+          [class]="selectedCategory() === category
+            ? 'rounded-full px-3 py-1 text-xs font-medium transition-colors bg-white text-black'
+            : 'rounded-full px-3 py-1 text-xs font-medium transition-colors bg-white/5 text-[#86868b] hover:text-white'"
+          [attr.aria-pressed]="selectedCategory() === category">
+          {{ i18n.translate(category) }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    @for (project of filteredProjects(); track project.id) {
+      <article class="group flex flex-col justify-between rounded-2xl border border-white/10 bg-[#161618]/70 p-6 backdrop-blur-lg transition-all duration-300 hover:border-[#2997ff]/50 sm:p-8">
+        <div>
+          <div class="mb-3 flex items-center justify-between">
+            <span class="font-mono text-xs text-[#86868b]">{{ i18n.translate(project.category) }}</span>
+            @if (project.githubUrl) {
+              <a
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-xs text-[#86868b] transition-colors hover:text-white"
+                [attr.aria-label]="i18n.translate('Abrir repositorio de GitHub')">
+                GitHub ↗
+              </a>
+            }
+          </div>
+          <h3 class="text-xl font-semibold text-white transition-colors group-hover:text-[#2997ff]">{{ project.title }}</h3>
+          <p class="mb-3 mt-1 text-xs font-medium text-[#2997ff]">{{ i18n.translate(project.subtitle) }}</p>
+          <p class="mb-6 text-sm leading-relaxed text-[#86868b]">{{ i18n.translate(project.description) }}</p>
+        </div>
+
+        <div>
+          <div class="mb-4 flex flex-wrap gap-2">
+            @for (tag of project.tags; track tag) {
+              <span class="rounded bg-white/5 px-2.5 py-0.5 text-[11px] font-medium text-[#86868b]">{{ tag }}</span>
+            }
+          </div>
+          <button
+            (click)="projectSelected.emit(project)"
+            class="flex w-full items-center justify-center gap-1 rounded-lg border border-white/5 bg-white/5 py-2 text-xs font-medium text-white transition-colors hover:bg-white/10">
+            <span>{{ i18n.translate('Ver detalles técnicos') }}</span>
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
+      </article>
+    } @empty {
+      <p class="text-sm text-[#86868b]">{{ i18n.translate('No hay proyectos en esta categoría todavía.') }}</p>
+    }
+  </div>
+</section>
