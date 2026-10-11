@@ -5,7 +5,8 @@
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng serve --configuration development"
+    "watch": "ng serve --configuration development",
+    "deploy": "ng build --configuration production --base-href / && npx angular-cli-ghpages --dir=dist/portfolio/browser --branch=main"
   },
   "dependencies": {
     "@angular/animations": "^19.2.0",
@@ -22,6 +23,7 @@
     "@angular-devkit/build-angular": "^19.2.0",
     "@angular/cli": "^19.2.0",
     "@angular/compiler-cli": "^19.2.0",
+    "angular-cli-ghpages": "^3.1.2",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
