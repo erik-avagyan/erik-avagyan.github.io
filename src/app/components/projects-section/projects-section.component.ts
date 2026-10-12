@@ -3,7 +3,7 @@ import { PROJECTS } from '../../data/portfolio.data';
 import { Project } from '../../models/portfolio.models';
 import { PortfolioPreferencesService } from '../../services/portfolio-preferences.service';
 
-type ProjectCategory = 'Todos' | Project['category'];
+type ProjectCategory = 'All' | Project['category'];
 
 @Component({
   selector: 'app-projects-section',
@@ -16,11 +16,11 @@ export class ProjectsSectionComponent {
   @Output() readonly projectSelected = new EventEmitter<Project>();
 
   readonly projects = PROJECTS;
-  readonly categories: ProjectCategory[] = ['Todos', 'Web', 'Mobile'];
-  readonly selectedCategory = signal<ProjectCategory>('Todos');
+  readonly categories: ProjectCategory[] = ['All', 'Web', 'Mobile'];
+  readonly selectedCategory = signal<ProjectCategory>('All');
   readonly filteredProjects = computed(() => {
     const category = this.selectedCategory();
-    return category === 'Todos'
+    return category === 'All'
       ? this.projects
       : this.projects.filter(project => project.category === category);
   });

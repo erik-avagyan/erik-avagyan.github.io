@@ -10,33 +10,34 @@ export const CONTACT = {
 export const EXPERIENCES: Experience[] = [
   {
     id: 'exp-embention',
-    role: 'Software Engineer, Apps Developer',
+    role: 'experience.embention.role',
     company: 'Embention',
-    period: 'Jun 2026 — Present',
-    location: 'Alicante, Spain',
-    description: 'Develop and maintain desktop and web applications for the control, configuration, and monitoring of safety-critical autopilots, avionics, and ground control solutions for autonomous drones and eVTOL aircraft.',
+    period: 'experience.embention.period',
+    location: 'experience.embention.location',
+    description: 'experience.embention.description',
     highlights: [
-      'Implement cross-platform desktop and web applications utilizing technologies such as Java, Angular, Go, TypeScript, and Wails.'
+      'experience.embention.highlight.1',
+      'experience.embention.highlight.2'
     ],
     technologies: ['Java', 'Angular', 'Go', 'TypeScript', 'Wails']
   },
   {
     id: 'exp-tutoring',
-    role: 'Programming Tutor & Instructor',
+    role: 'experience.tutoring.role',
     company: 'Private Lessons',
-    location: 'Online',
-    description: 'Delivered private programming lessons to university undergraduate and vocational training students, focusing on Python, Java, PHP, and C++.',
-    highlights: [],
+    location: 'experience.tutoring.location',
+    description: 'experience.tutoring.description',
+    highlights: ['experience.tutoring.highlight.1'],
     technologies: ['Python', 'Java', 'PHP', 'C++']
   },
   {
     id: 'exp-dual-link',
-    role: 'Computer Engineering Internship',
+    role: 'experience.duallink.role',
     company: 'Dual Link',
-    period: 'Feb 2023 — Jul 2023',
-    location: "Sant Joan d'Alacant, Spain",
-    description: 'Developed native iOS applications using Swift and designed and implemented an AI-driven tool to streamline application translation and localization.',
-    highlights: [],
+    period: 'experience.duallink.period',
+    location: 'experience.duallink.location',
+    description: 'experience.duallink.description',
+    highlights: ['experience.duallink.highlight.1', 'experience.duallink.highlight.2'],
     technologies: ['Swift', 'iOS', 'AI', 'Localization']
   }
 ];
@@ -44,26 +45,27 @@ export const EXPERIENCES: Experience[] = [
 export const EDUCATIONS: Education[] = [
   {
     id: 'edu-mobile',
-    degree: 'Master of Software Development for Mobile Devices',
+    degree: 'education.master.degree',
     institution: 'University of Alicante',
-    period: '2024 — 2025',
-    location: 'Alicante, Spain',
+    period: 'education.master.period',
+    location: 'education.location',
     highlights: [
-      'Desarrolló aplicaciones nativas para Android e iOS, además de aplicaciones móviles multiplataforma.',
-      'Desarrolló juegos nativos para iOS y juegos para Android con Unity.',
-      'Trabajó con Swift y Kotlin y exploró arquitecturas móviles y frameworks multiplataforma.',
-      'Trabajo de fin de máster: diseñó y desarrolló Caishen Manager, una aplicación multiplataforma de finanzas personales.'
+      'education.master.highlight.1',
+      'education.master.highlight.2',
+      'education.master.highlight.3',
+      'education.master.highlight.4'
     ]
   },
   {
     id: 'edu-computer-engineering',
-    degree: "Bachelor's Degree in Computer Engineering",
+    degree: 'education.bachelor.degree',
     institution: 'University of Alicante',
-    period: '2020 — 2024',
-    location: 'Alicante, Spain',
+    period: 'education.bachelor.period',
+    location: 'education.location',
     highlights: [
-      'Estudió lenguajes de programación y frameworks, pruebas de software, análisis de sistemas y gestión de proyectos.',
-      'Adquirió una base amplia de ingeniería del software para adaptarse a nuevas tecnologías, proyectos y equipos multidisciplinares.'
+      'education.bachelor.highlight.1',
+      'education.bachelor.highlight.2',
+      'education.bachelor.highlight.3'
     ]
   }
 ];
@@ -72,9 +74,9 @@ export const PROJECTS: Project[] = [
   {
     id: 'proj-liber',
     title: 'Liber Platform',
-    subtitle: 'Movie Social Network',
-    description: 'Full-stack social network and movie database with discussion forums, private messaging, user reviews, customizable movie lists, and detailed film, director, and cast pages.',
-    longDescription: 'Engineered a full-stack social network and movie database featuring discussion forums, real-time private messaging, user reviews, customizable movie lists, and detailed pages for films, directors, and cast. Designed and optimized relational database schemas to manage user-generated content and media metadata.',
+    subtitle: 'projects.liber.subtitle',
+    description: 'projects.liber.description',
+    longDescription: 'projects.liber.longDescription',
     tags: ['Laravel', 'PHP', 'PostgreSQL', 'Bootstrap'],
     featured: true,
     category: 'Web'
@@ -82,9 +84,9 @@ export const PROJECTS: Project[] = [
   {
     id: 'proj-caishen',
     title: 'Caishen Manager',
-    subtitle: 'Personal Finance App',
-    description: 'Cross-platform application to manage personal finances, track income and expenses, monitor debts, and split shared costs among users.',
-    longDescription: 'Developed a cross-platform personal finance application to manage finances, track income and expenses, monitor debts, and split shared costs among users. Integrated backend services and serverless logic for real-time data synchronization and secure authentication.',
+    subtitle: 'projects.caishen.subtitle',
+    description: 'projects.caishen.description',
+    longDescription: 'projects.caishen.longDescription',
     tags: ['Ionic', 'React', 'TypeScript', 'Supabase', 'Lambda'],
     featured: true,
     category: 'Mobile'
@@ -93,40 +95,40 @@ export const PROJECTS: Project[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: 'Programming Languages',
+    title: 'skills.category.languages',
     skills: ['Java', 'Kotlin', 'TypeScript', 'JavaScript', 'Python', 'Go', 'Swift', 'HTML', 'CSS']
   },
   {
-    title: 'Frameworks',
+    title: 'skills.category.frameworks',
     skills: ['Angular', 'Ionic', 'Laravel', 'Spring Boot', 'React', 'Symfony', 'Unity']
   },
   {
-    title: 'Tools',
+    title: 'skills.category.tools',
     skills: ['Git', 'GitHub', 'Android Studio', 'Xcode', 'VS Code']
   },
   {
-    title: 'Databases',
+    title: 'skills.category.databases',
     skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Supabase', 'Firebase']
   },
   {
-    title: 'Areas of Interest',
+    title: 'skills.category.interests',
     skills: ['Web Development', 'Cross-Platform Apps', 'Native Android', 'Native iOS']
   },
   {
-    title: 'Soft Skills',
+    title: 'skills.category.softSkills',
     skills: ['Problem Solving', 'Self-Learning', 'Adaptability', 'Analysis', 'Group Management']
   }
 ];
 
 export const SPOKEN_LANGUAGES: SpokenLanguage[] = [
-  { name: 'Armenio', proficiency: 'Mi idioma nativo', note: 'Uso personal y familiar' },
-  { name: 'Español', proficiency: 'Casi nativo', note: 'Uso profesional, académico y personal' },
-  { name: 'Inglés', proficiency: 'Nivel profesional', note: 'Uso profesional, académico y personal' },
-  { name: 'Ruso', proficiency: 'Casi nativo', note: 'Uso personal' },
-  { name: 'Valenciano/Catalán', proficiency: 'Nivel básico', note: 'Uso personal y académico' },
+  { name: 'languages.armenian.name', proficiency: 'languages.armenian.level', note: 'languages.armenian.note' },
+  { name: 'languages.spanish.name', proficiency: 'languages.spanish.level', note: 'languages.spanish.note' },
+  { name: 'languages.english.name', proficiency: 'languages.english.level', note: 'languages.english.note' },
+  { name: 'languages.russian.name', proficiency: 'languages.russian.level', note: 'languages.russian.note' },
+  { name: 'languages.valencian.name', proficiency: 'languages.valencian.level', note: 'languages.valencian.note' },
   {
-    name: 'Chino mandarín',
-    proficiency: 'Nivel muy básico',
-    note: 'Aprendiendo; con ganas de seguir avanzando'
+    name: 'languages.mandarin.name',
+    proficiency: 'languages.mandarin.level',
+    note: 'languages.mandarin.note'
   }
 ];

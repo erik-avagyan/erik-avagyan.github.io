@@ -5,31 +5,31 @@
       <span>Erik Avagyan</span>
     </a>
 
-    <nav class="hidden items-center gap-8 text-sm font-medium text-[#86868b] md:flex" [attr.aria-label]="i18n.translate('Navegación principal')">
-      <a href="#experiencia" class="hover:text-white">{{ i18n.translate('Experiencia') }}</a>
-      <a href="#estudios" class="hover:text-white">{{ i18n.translate('Estudios') }}</a>
-      <a href="#idiomas" class="hover:text-white">{{ i18n.translate('Idiomas') }}</a>
-      <a href="#proyectos" class="hover:text-white">{{ i18n.translate('Proyectos') }}</a>
-      <a href="#tecnologias" class="hover:text-white">{{ i18n.translate('Tecnologías') }}</a>
-      <a href="#contacto" class="hover:text-white">{{ i18n.translate('Contacto') }}</a>
+    <nav class="hidden items-center gap-8 text-sm font-medium text-[#86868b] md:flex" [attr.aria-label]="i18n.translate('nav.label')">
+      <a href="#experiencia" class="hover:text-white">{{ i18n.translate('nav.experience') }}</a>
+      <a href="#estudios" class="hover:text-white">{{ i18n.translate('nav.education') }}</a>
+      <a href="#idiomas" class="hover:text-white">{{ i18n.translate('nav.languages') }}</a>
+      <a href="#proyectos" class="hover:text-white">{{ i18n.translate('nav.projects') }}</a>
+      <a href="#tecnologias" class="hover:text-white">{{ i18n.translate('nav.technologies') }}</a>
+      <a href="#contacto" class="hover:text-white">{{ i18n.translate('nav.contact') }}</a>
     </nav>
 
     <div class="flex items-center gap-3">
       <button (click)="contactRequested.emit()" class="hidden rounded-full bg-white px-4 py-1.5 text-xs font-medium text-black hover:bg-neutral-200 sm:inline-flex">
-        {{ i18n.translate('Contactar') }}
+        {{ i18n.translate('action.contact') }}
       </button>
       <button
         (click)="i18n.toggleLanguage()"
         class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs font-semibold text-white hover:bg-white/10"
-        [attr.aria-label]="i18n.language() === 'es' ? 'Switch language to English' : 'Cambiar idioma a español'"
+        [attr.aria-label]="i18n.translate(i18n.language() === 'es' ? 'action.switchLanguageToEnglish' : 'action.switchLanguageToSpanish')"
         title="ES / EN">
         {{ i18n.language() === 'es' ? 'ES' : 'EN' }}
       </button>
       <button
         (click)="i18n.toggleTheme()"
         class="rounded-full border border-white/10 bg-white/5 p-1.5 text-white hover:bg-white/10"
-        [attr.aria-label]="i18n.translate(i18n.theme() === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro')"
-        [title]="i18n.translate(i18n.theme() === 'dark' ? 'Modo claro' : 'Modo oscuro')">
+        [attr.aria-label]="i18n.translate(i18n.theme() === 'dark' ? 'action.enableLightMode' : 'action.enableDarkMode')"
+        [title]="i18n.translate(i18n.theme() === 'dark' ? 'action.lightMode' : 'action.darkMode')">
         @if (i18n.theme() === 'dark') {
           <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="4" stroke-width="2"/>
@@ -45,7 +45,7 @@
         (click)="toggleMenu()"
         class="p-2 text-[#86868b] hover:text-white focus:outline-none md:hidden"
         [attr.aria-expanded]="mobileMenuOpen()"
-        [attr.aria-label]="i18n.translate('Abrir o cerrar menú')">
+        [attr.aria-label]="i18n.translate('action.toggleMenu')">
         @if (mobileMenuOpen()) {
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -60,22 +60,22 @@
   </div>
 
   @if (mobileMenuOpen()) {
-    <nav class="space-y-3 border-b border-white/10 bg-[#161618] px-6 py-4 md:hidden" [attr.aria-label]="i18n.translate('Navegación principal')">
-      <a href="#experiencia" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('Experiencia') }}</a>
-      <a href="#estudios" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('Estudios') }}</a>
-      <a href="#idiomas" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('Idiomas') }}</a>
-      <a href="#proyectos" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('Proyectos') }}</a>
-      <a href="#tecnologias" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('Tecnologías') }}</a>
-      <a href="#contacto" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('Contacto') }}</a>
+    <nav class="space-y-3 border-b border-white/10 bg-[#161618] px-6 py-4 md:hidden" [attr.aria-label]="i18n.translate('nav.label')">
+      <a href="#experiencia" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('nav.experience') }}</a>
+      <a href="#estudios" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('nav.education') }}</a>
+      <a href="#idiomas" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('nav.languages') }}</a>
+      <a href="#proyectos" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('nav.projects') }}</a>
+      <a href="#tecnologias" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('nav.technologies') }}</a>
+      <a href="#contacto" (click)="closeMenu()" class="block py-1 text-sm text-[#86868b] hover:text-white">{{ i18n.translate('nav.contact') }}</a>
       <button
         (click)="closeMenu(); contactRequested.emit()"
         class="mt-2 w-full rounded-full bg-white px-4 py-2 text-xs font-medium text-black hover:bg-neutral-200">
-        {{ i18n.translate('Contactar') }}
+        {{ i18n.translate('action.contact') }}
       </button>
       <button
         (click)="closeMenu(); resumeRequested.emit()"
         class="w-full rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-white hover:bg-white/10">
-        {{ i18n.translate('CV') }}
+        {{ i18n.translate('action.resume') }}
       </button>
     </nav>
   }

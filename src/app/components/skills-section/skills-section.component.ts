@@ -23,8 +23,7 @@ export class SkillsSectionComponent {
       .map(category => ({
         ...category,
         skills: category.skills.filter(skill =>
-          skill.toLocaleLowerCase().includes(query) ||
-          this.i18n.translate(skill).toLocaleLowerCase().includes(query)
+          skill.toLocaleLowerCase().includes(query)
         )
       }))
       .filter(category => category.skills.length > 0);

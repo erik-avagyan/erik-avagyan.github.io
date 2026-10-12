@@ -8,24 +8,24 @@
     <button
       (click)="closed.emit()"
       class="absolute right-4 top-4 p-1 text-[#86868b] hover:text-white"
-      [attr.aria-label]="i18n.translate('Cerrar ventana de contacto')">
+      [attr.aria-label]="i18n.translate('contactModal.closeLabel')">
       <span aria-hidden="true">✕</span>
     </button>
 
-    <h2 id="contact-modal-title" class="text-2xl font-bold text-white">{{ i18n.translate('Contactar con Erik') }}</h2>
-    <p class="text-xs text-[#86868b]">{{ i18n.translate('Envíame un correo directo o conecta a través de mis redes profesionales.') }}</p>
+    <h2 id="contact-modal-title" class="text-2xl font-bold text-white">{{ i18n.translate('contactModal.title') }}</h2>
+    <p class="text-xs text-[#86868b]">{{ i18n.translate('contactModal.description') }}</p>
 
     <div class="space-y-3 pt-2">
       <a
         [href]="'mailto:' + contact.email"
         class="flex items-center justify-between gap-2 rounded-xl border border-white/5 bg-white/5 p-3 text-xs text-white transition-all hover:border-[#2997ff]/50">
-        <span>{{ i18n.translate('Enviar correo electrónico') }}</span>
+        <span>{{ i18n.translate('contactModal.email') }}</span>
         <span class="text-[#2997ff]">{{ contact.email }}</span>
       </a>
       <a
         [href]="'tel:' + contact.phone.replaceAll(' ', '')"
         class="flex items-center justify-between gap-2 rounded-xl border border-white/5 bg-white/5 p-3 text-xs text-white transition-all hover:border-[#2997ff]/50">
-        <span>{{ i18n.translate('Llamar') }}</span>
+        <span>{{ i18n.translate('contactModal.call') }}</span>
         <span class="text-[#2997ff]">{{ contact.phone }}</span>
       </a>
       <a
@@ -33,7 +33,7 @@
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center justify-between rounded-xl border border-white/5 bg-white/5 p-3 text-xs text-white transition-all hover:border-[#2997ff]/50">
-        <span>{{ i18n.translate('Perfil de LinkedIn') }}</span>
+        <span>{{ i18n.translate('contactModal.linkedin') }}</span>
         <span class="text-[#2997ff]">/in/erik-avagyan-77331126a/</span>
       </a>
       <a
@@ -41,7 +41,7 @@
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center justify-between rounded-xl border border-white/5 bg-white/5 p-3 text-xs text-white transition-all hover:border-[#2997ff]/50">
-        <span>{{ i18n.translate('Perfil de GitHub') }}</span>
+        <span>{{ i18n.translate('contactModal.github') }}</span>
         <span class="text-[#2997ff]">github.com</span>
       </a>
     </div>
@@ -49,7 +49,7 @@
     <button
       (click)="closed.emit()"
       class="mt-4 w-full rounded-full border border-white/10 bg-white/5 py-2.5 text-xs font-medium text-white transition-colors hover:bg-white/10">
-      {{ i18n.translate('Cerrar') }}
+      {{ i18n.translate('action.close') }}
     </button>
   </section>
 </div>

@@ -7,7 +7,7 @@
     (click)="$event.stopPropagation()">
     <header class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:flex-nowrap sm:px-6 sm:py-4">
       <div>
-        <h2 id="resume-modal-title" class="text-lg font-semibold text-white">{{ i18n.translate('CV de Erik Avagyan') }}</h2>
+        <h2 id="resume-modal-title" class="text-lg font-semibold text-white">{{ i18n.translate('resume.title') }}</h2>
         <p class="mt-1 text-xs text-[#86868b]">PDF</p>
       </div>
       <div class="flex flex-wrap items-center justify-end gap-2">
@@ -16,29 +16,29 @@
           target="_blank"
           rel="noopener noreferrer"
           class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white hover:bg-white/10">
-          {{ i18n.translate('Abrir CV en una pestaña nueva') }}
+          {{ i18n.translate('resume.open') }}
         </a>
         <a
           href="/cv.pdf"
           download="Erik-Avagyan-CV.pdf"
           class="rounded-full bg-white px-3 py-2 text-xs font-medium text-black hover:bg-neutral-200">
-          {{ i18n.translate('Descargar CV') }}
+          {{ i18n.translate('resume.download') }}
         </a>
         <button
           (click)="closed.emit()"
           class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white hover:bg-white/10">
-          {{ i18n.translate('Cerrar') }}
+          {{ i18n.translate('action.close') }}
         </button>
       </div>
     </header>
 
     <div class="min-h-0 flex-1 overflow-auto bg-neutral-700 p-2 sm:p-6">
       @if (loading()) {
-        <p class="py-8 text-center text-sm text-white">{{ i18n.translate('Cargando CV…') }}</p>
+        <p class="py-8 text-center text-sm text-white">{{ i18n.translate('resume.loading') }}</p>
       }
       @if (error()) {
         <div class="mx-auto max-w-lg rounded-xl border border-white/10 bg-[#161618] p-6 text-center">
-          <p class="text-sm text-white">{{ i18n.translate('No se pudo mostrar la vista previa. Puedes abrir o descargar el PDF.') }}</p>
+          <p class="text-sm text-white">{{ i18n.translate('resume.previewError') }}</p>
         </div>
       }
       <div #pdfPages class="mx-auto flex max-w-4xl flex-col gap-4"></div>
