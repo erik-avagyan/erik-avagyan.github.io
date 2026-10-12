@@ -72,6 +72,11 @@ export class AppComponent {
   readonly activeProject = signal<Project | null>(null);
   readonly contactModalOpen = signal(false);
   readonly resumeModalOpen = signal(false);
+  private pointerX?: number;
+  private pointerY?: number;
+  private targetPointerX = 0;
+  private targetPointerY = 0;
+  private pointerAnimationFrame: number | null = null;
 
   @HostListener('document:pointermove', ['$event'])
   trackPointer(event: PointerEvent): void {
@@ -79,8 +84,55 @@ export class AppComponent {
       return;
     }
 
-    const root = this.document.documentElement;
-    root.style.setProperty('--pointer-x', `${event.clientX}px`);
-    root.style.setProperty('--pointer-y', `${event.clientY}px`);
+    const pointerGlow = this.document.querySelector<HTMLElement>('.pointer-glow');
+    if (!pointerGlow) {
+      return;
+    }
+
+    this.targetPointerX = event.clientX;
+    this.targetPointerY = event.clientY;
+
+    if (this.preferences.theme() !== 'light') {
+      this.pointerX = event.clientX;
+      this.pointerY = event.clientY;
+      if (this.pointerAnimationFrame !== null) {
+        cancelAnimationFrame(this.pointerAnimationFrame);
+        this.pointerAnimationFrame = null;
+      }
+      this.setPointerPosition(pointerGlow, this.pointerX, this.pointerY);
+      return;
+    }
+
+    if (this.pointerX === undefined || this.pointerY === undefined) {
+      this.pointerX = event.clientX;
+      this.pointerY = event.clientY;
+      this.setPointerPosition(pointerGlow, this.pointerX, this.pointerY);
+      return;
+    }
+
+    if (this.pointerAnimationFrame === null) {
+      this.pointerAnimationFrame = requestAnimationFrame(() => this.animatePointer());
+    }
+  }
+
+  private animatePointer(): void {
+    this.pointerAnimationFrame = null;
+    const pointerGlow = this.document.querySelector<HTMLElement>('.pointer-glow');
+    if (!pointerGlow || this.pointerX === undefined || this.pointerY === undefined) {
+      return;
+    }
+
+    this.pointerX += (this.targetPointerX - this.pointerX) * 0.12;
+    this.pointerY += (this.targetPointerY - this.pointerY) * 0.12;
+    this.setPointerPosition(pointerGlow, this.pointerX, this.pointerY);
+
+    if (Math.abs(this.targetPointerX - this.pointerX) > 0.5 || Math.abs(this.targetPointerY - this.pointerY) > 0.5) {
+      this.pointerAnimationFrame = requestAnimationFrame(() => this.animatePointer());
+    }
+  }
+
+  private setPointerPosition(element: HTMLElement, x: number, y: number): void {
+    element.style.setProperty('--pointer-x', `${x}px`);
+    element.style.setProperty('--pointer-y', `${y}px`);
   }
 }

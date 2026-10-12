@@ -49,20 +49,38 @@ body {
   inset: 0;
   pointer-events: none;
   background: radial-gradient(
-    460px circle at var(--pointer-x, 50vw) var(--pointer-y, 35vh),
-    rgb(41 151 255 / 13%),
-    transparent 72%
+    520px circle at var(--pointer-x, 50vw) var(--pointer-y, 35vh),
+    rgb(59 130 246 / 34%),
+    rgb(124 58 237 / 24%) 38%,
+    transparent 74%
   );
   opacity: 0.9;
-  transition: background-position 120ms ease-out;
 }
 
 .light-theme .pointer-glow {
-  background: radial-gradient(
-    500px circle at var(--pointer-x, 50vw) var(--pointer-y, 35vh),
-    rgb(41 151 255 / 15%),
-    transparent 72%
-  );
+  background:
+    radial-gradient(
+      ellipse 820px 390px at var(--pointer-x, 50vw) var(--pointer-y, 35vh),
+      rgb(14 165 233 / 34%),
+      transparent 74%
+    ),
+    radial-gradient(
+      ellipse 660px 560px at calc(var(--pointer-x, 50vw) + 150px) calc(var(--pointer-y, 35vh) + 70px),
+      rgb(168 85 247 / 27%),
+      transparent 76%
+    ),
+    radial-gradient(
+      ellipse 560px 340px at calc(var(--pointer-x, 50vw) - 180px) calc(var(--pointer-y, 35vh) - 100px),
+      rgb(249 115 22 / 28%),
+      transparent 76%
+    ),
+    radial-gradient(
+      ellipse 440px 520px at calc(var(--pointer-x, 50vw) + 40px) calc(var(--pointer-y, 35vh) - 170px),
+      rgb(244 63 94 / 20%),
+      transparent 78%
+    );
+  mix-blend-mode: multiply;
+  opacity: 0.92;
 }
 
 .light-theme {
