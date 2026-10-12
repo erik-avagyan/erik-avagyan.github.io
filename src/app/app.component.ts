@@ -4,6 +4,7 @@ import { PortfolioPreferencesService } from './services/portfolio-preferences.se
 import { Project } from './models/portfolio.models';
 import { ContactModalComponent } from './components/contact-modal/contact-modal.component';
 import { ContactSectionComponent } from './components/contact-section/contact-section.component';
+import { AiDevelopmentSectionComponent } from './components/ai-development-section/ai-development-section.component';
 import { EducationSectionComponent } from './components/education-section/education-section.component';
 import { ExperienceSectionComponent } from './components/experience-section/experience-section.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -25,6 +26,7 @@ import { SkillsSectionComponent } from './components/skills-section/skills-secti
     LanguagesSectionComponent,
     ProjectsSectionComponent,
     SkillsSectionComponent,
+    AiDevelopmentSectionComponent,
     ContactSectionComponent,
     ProjectDetailsModalComponent,
     ContactModalComponent,
@@ -47,6 +49,7 @@ import { SkillsSectionComponent } from './components/skills-section/skills-secti
         <app-languages-section />
         <app-projects-section (projectSelected)="activeProject.set($event)" />
         <app-skills-section />
+        <app-ai-development-section />
         <app-contact-section />
       </main>
 

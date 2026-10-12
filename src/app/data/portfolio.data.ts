@@ -28,7 +28,7 @@ export const EXPERIENCES: Experience[] = [
     location: 'experience.tutoring.location',
     description: 'experience.tutoring.description',
     highlights: ['experience.tutoring.highlight.1'],
-    technologies: ['Python', 'Java', 'PHP', 'C++']
+    technologies: ['Python', 'Java', 'PHP', 'Laravel', 'Symfony', 'C++']
   },
   {
     id: 'exp-dual-link',
@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     subtitle: 'projects.liber.subtitle',
     description: 'projects.liber.description',
     longDescription: 'projects.liber.longDescription',
-    tags: ['Laravel', 'PHP', 'PostgreSQL', 'Bootstrap'],
+    tags: ['Laravel', 'PHP', 'PostgreSQL', 'Bootstrap', 'JavaScript', 'HTML', 'CSS'],
     featured: true,
     category: 'Web'
   },
@@ -96,15 +96,15 @@ export const PROJECTS: Project[] = [
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: 'skills.category.languages',
-    skills: ['Java', 'Kotlin', 'TypeScript', 'JavaScript', 'Python', 'Go', 'Swift', 'HTML', 'CSS']
+    skills: ['Java','TypeScript','JavaScript', 'Python', 'Go', 'Kotlin', 'Swift', 'HTML', 'CSS']
   },
   {
     title: 'skills.category.frameworks',
-    skills: ['Angular', 'Ionic', 'Laravel', 'Spring Boot', 'React', 'Symfony', 'Unity']
+    skills: ['Angular', 'Ionic', 'Laravel', 'Spring Boot', 'React', 'Symfony', 'Android Native', 'iOS Native']
   },
   {
     title: 'skills.category.tools',
-    skills: ['Git', 'GitHub', 'Android Studio', 'Xcode', 'VS Code']
+    skills: ['Git', 'GitHub', 'Android Studio', 'Xcode', 'VS Code', 'Postman', 'Swagger' ]
   },
   {
     title: 'skills.category.databases',

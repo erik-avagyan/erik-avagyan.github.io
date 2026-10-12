@@ -5,18 +5,20 @@
       <h2 class="mt-1 text-3xl font-bold text-white">{{ i18n.translate('projects.title') }}</h2>
     </div>
 
-    <div class="mt-4 flex flex-wrap gap-2 md:mt-0" [attr.aria-label]="i18n.translate('projects.filterLabel')">
-      @for (category of categories; track category) {
-        <button
-          (click)="selectedCategory.set(category)"
-          [class]="selectedCategory() === category
-            ? 'rounded-full px-3 py-1 text-xs font-medium transition-colors bg-white text-black'
-            : 'rounded-full px-3 py-1 text-xs font-medium transition-colors bg-white/5 text-[#86868b] hover:text-white'"
-          [attr.aria-pressed]="selectedCategory() === category">
-          {{ i18n.translate(category === 'All' ? 'projects.filter.all' : category === 'Web' ? 'projects.category.web' : 'projects.category.mobile') }}
-        </button>
-      }
-    </div>
+    @if (showFilters()) {
+      <div class="mt-4 flex flex-wrap gap-2 md:mt-0" [attr.aria-label]="i18n.translate('projects.filterLabel')">
+        @for (category of filterCategories(); track category) {
+          <button
+            (click)="selectedCategory.set(category)"
+            [class]="selectedCategory() === category
+              ? 'rounded-full px-3 py-1 text-xs font-medium transition-colors bg-white text-black'
+              : 'rounded-full px-3 py-1 text-xs font-medium transition-colors bg-white/5 text-[#86868b] hover:text-white'"
+            [attr.aria-pressed]="selectedCategory() === category">
+            {{ i18n.translate(category === 'All' ? 'projects.filter.all' : category === 'Web' ? 'projects.category.web' : 'projects.category.mobile') }}
+          </button>
+        }
+      </div>
+    }
   </div>
 
   <div class="grid gap-6 md:grid-cols-2">

@@ -16,8 +16,20 @@ export class ProjectsSectionComponent {
   @Output() readonly projectSelected = new EventEmitter<Project>();
 
   readonly projects = PROJECTS;
-  readonly categories: ProjectCategory[] = ['All', 'Web', 'Mobile'];
+  readonly filterCategories = computed<ProjectCategory[]>(() => {
+    const categoryCounts = new Map<Project['category'], number>();
+    for (const project of this.projects) {
+      categoryCounts.set(project.category, (categoryCounts.get(project.category) ?? 0) + 1);
+    }
+
+    const categories = [...categoryCounts]
+      .filter(([, count]) => count > 1)
+      .map(([category]) => category);
+
+    return categories.length > 0 ? ['All', ...categories] : [];
+  });
   readonly selectedCategory = signal<ProjectCategory>('All');
+  readonly showFilters = computed(() => this.filterCategories().length > 0);
   readonly filteredProjects = computed(() => {
     const category = this.selectedCategory();
     return category === 'All'

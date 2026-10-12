@@ -1,0 +1,46 @@
+<section id="ai-development" class="mx-auto max-w-5xl border-t border-white/10 px-6 py-20">
+  <header class="mb-12 text-center">
+    <span class="rounded-full border border-[#2997ff]/20 bg-[#2997ff]/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-[#2997ff]">
+      {{ i18n.translate('ai.badge') }}
+    </span>
+    <h2 class="mx-auto mb-4 mt-5 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      {{ i18n.translate('ai.title') }}
+    </h2>
+    <p class="mx-auto max-w-2xl text-sm leading-relaxed text-[#86868b] sm:text-base">
+      {{ i18n.translate('ai.subtitle') }}
+    </p>
+  </header>
+
+  <div class="grid items-center gap-8 lg:grid-cols-2">
+    <div class="group relative mx-auto w-full max-w-md">
+      <div class="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#2997ff]/40 to-cyan-400/20 opacity-60 blur transition-opacity duration-500 group-hover:opacity-90"></div>
+      <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-[#161618]/70">
+        <img
+          src="/ia.png"
+          [alt]="i18n.translate('ai.imageAlt')"
+          loading="lazy"
+          class="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
+      </div>
+    </div>
+
+    <div class="space-y-5">
+      <div class="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+        @for (pillar of pillars; track pillar.title) {
+          <article class="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md transition-colors hover:border-[#2997ff]/30">
+            <h3 class="mb-2 text-sm font-semibold text-white">{{ i18n.translate(pillar.title) }}</h3>
+            <p class="text-xs leading-relaxed text-[#86868b]">{{ i18n.translate(pillar.description) }}</p>
+          </article>
+        }
+      </div>
+
+      <aside class="rounded-2xl border border-[#2997ff]/20 bg-[#2997ff]/5 p-6 backdrop-blur-xl">
+        <h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-[#2997ff]">
+          {{ i18n.translate('ai.philosophy.title') }}
+        </h3>
+        <p class="text-sm leading-relaxed text-[#86868b]">
+          {{ i18n.translate('ai.philosophy.text') }}
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>

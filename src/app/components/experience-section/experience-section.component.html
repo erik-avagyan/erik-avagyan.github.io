@@ -13,7 +13,14 @@
         <div class="mb-4 flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
           <div>
             <h3 class="text-xl font-semibold text-white">{{ i18n.translate(exp.role) }}</h3>
-            <p class="text-sm font-medium text-[#2997ff]">{{ exp.id === 'exp-tutoring' ? i18n.translate('experience.tutoring.company') : exp.company }} · <span class="text-[#86868b]">{{ i18n.translate(exp.location) }}</span></p>
+            <p class="text-sm font-medium text-[#2997ff]">
+              @if (exp.id === 'exp-embention') {
+                <a href="https://www.embention.com/" target="_blank" rel="noopener noreferrer" class="underline decoration-transparent underline-offset-4 transition-colors hover:decoration-current focus-visible:decoration-current">{{ exp.company }}</a>
+              } @else {
+                {{ exp.id === 'exp-tutoring' ? i18n.translate('experience.tutoring.company') : exp.company }}
+              }
+              · <span class="text-[#86868b]">{{ i18n.translate(exp.location) }}</span>
+            </p>
           </div>
           @if (exp.period) {
             <span class="w-fit rounded-full border border-white/5 bg-white/5 px-3 py-1 text-xs font-medium text-[#86868b]">{{ i18n.translate(exp.period) }}</span>

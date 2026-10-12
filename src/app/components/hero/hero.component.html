@@ -2,18 +2,25 @@
   <div class="max-w-3xl">
     <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 backdrop-blur-md">
       <span class="h-2 w-2 animate-pulse rounded-full bg-emerald-400"></span>
-      <span class="text-xs font-medium text-[#86868b]">{{ i18n.translate('hero.position') }}</span>
+      <span class="text-xs font-medium text-[#86868b]">
+        {{ i18n.translate('hero.position') }}&nbsp;<a href="https://www.embention.com/" target="_blank" rel="noopener noreferrer" class="text-[#2997ff] underline decoration-transparent underline-offset-2 transition-colors hover:decoration-current focus-visible:decoration-current">{{ i18n.translate('hero.embention') }}</a>
+      </span>
     </div>
 
     <h1 class="mb-6 text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl">
       {{ i18n.translate('hero.title') }}
     </h1>
 
-    <p class="mb-8 max-w-2xl text-lg font-normal leading-relaxed text-[#86868b] sm:text-xl">
-      {{ i18n.translate('hero.body.embention') }}
-      {{ i18n.translate('hero.body.fullStack') }}
-      {{ i18n.translate('hero.body.adaptability') }}
-    </p>
+    <div class="mb-8 max-w-2xl text-lg font-normal leading-relaxed text-[#86868b] sm:text-xl">
+      <p class="mb-4">
+        {{ i18n.translate('hero.description') }}
+      </p>
+      <p>
+        {{ i18n.translate('hero.body.embention') }}<a href="https://www.embention.com/" target="_blank" rel="noopener noreferrer" class="text-[#2997ff] underline decoration-transparent underline-offset-4 transition-colors hover:decoration-current focus-visible:decoration-current">{{ i18n.translate('hero.embention') }}</a>{{ i18n.translate('hero.body.embentionAfter') }}
+        {{ i18n.translate('hero.body.fullStack') }}
+        {{ i18n.translate('hero.body.adaptability') }}
+      </p>
+    </div>
 
     <div class="flex flex-wrap items-center gap-3">
       <button
