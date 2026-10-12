@@ -5,30 +5,43 @@
     aria-labelledby="resume-modal-title"
     class="flex max-h-[94vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#161618] shadow-2xl"
     (click)="$event.stopPropagation()">
-    <header class="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4 sm:px-6">
+    <header class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:flex-nowrap sm:px-6 sm:py-4">
       <div>
         <h2 id="resume-modal-title" class="text-lg font-semibold text-white">{{ i18n.translate('CV de Erik Avagyan') }}</h2>
         <p class="mt-1 text-xs text-[#86868b]">PDF</p>
       </div>
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center justify-end gap-2">
+        <a
+          href="/cv.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white hover:bg-white/10">
+          {{ i18n.translate('Abrir CV en una pestaña nueva') }}
+        </a>
         <a
           href="/cv.pdf"
           download="Erik-Avagyan-CV.pdf"
-          class="rounded-full bg-white px-4 py-2 text-xs font-medium text-black hover:bg-neutral-200">
+          class="rounded-full bg-white px-3 py-2 text-xs font-medium text-black hover:bg-neutral-200">
           {{ i18n.translate('Descargar CV') }}
         </a>
         <button
           (click)="closed.emit()"
-          class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-white hover:bg-white/10">
+          class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium text-white hover:bg-white/10">
           {{ i18n.translate('Cerrar') }}
         </button>
       </div>
     </header>
 
-    <iframe
-      src="/cv.pdf"
-      [title]="i18n.translate('Vista previa del CV de Erik Avagyan')"
-      class="min-h-[65vh] w-full flex-1 border-0 bg-white">
-    </iframe>
+    <div class="min-h-0 flex-1 overflow-auto bg-neutral-700 p-2 sm:p-6">
+      @if (loading()) {
+        <p class="py-8 text-center text-sm text-white">{{ i18n.translate('Cargando CV…') }}</p>
+      }
+      @if (error()) {
+        <div class="mx-auto max-w-lg rounded-xl border border-white/10 bg-[#161618] p-6 text-center">
+          <p class="text-sm text-white">{{ i18n.translate('No se pudo mostrar la vista previa. Puedes abrir o descargar el PDF.') }}</p>
+        </div>
+      }
+      <div #pdfPages class="mx-auto flex max-w-4xl flex-col gap-4"></div>
+    </div>
   </section>
 </div>

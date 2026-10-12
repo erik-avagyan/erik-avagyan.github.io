@@ -121,6 +121,8 @@ const SPANISH_TO_ENGLISH: Record<string, string> = {
   'CV de Erik Avagyan': 'Erik Avagyan’s resume',
   'Descargar CV': 'Download resume',
   'Vista previa del CV de Erik Avagyan': 'Erik Avagyan’s resume preview',
+  'Cargando CV…': 'Loading resume…',
+  'No se pudo mostrar la vista previa. Puedes abrir o descargar el PDF.': 'The preview could not be displayed. You can open or download the PDF.',
   'Cerrar': 'Close',
 
   '¿Hablamos sobre un proyecto?': 'Let’s talk about a project',

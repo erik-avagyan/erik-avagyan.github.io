@@ -22,7 +22,7 @@ Los enlaces de GitHub y LinkedIn, el correo y el teléfono se han actualizado co
 
 ## Foto y CV
 
-Coloca la fotografía en `public/profile.png` y el documento en `public/cv.pdf`. La fotografía se muestra junto a la presentación y el CV se abre en una vista previa integrada, con un enlace para descargarlo.
+Coloca la fotografía en `public/profile.png` y el documento en `public/cv.pdf`. La fotografía se muestra junto a la presentación y el CV se representa dentro de la vista previa (también en móviles), con opciones para abrir el PDF y descargarlo. `public/pdf.worker.min.mjs` es el worker de PDF.js necesario para renderizar las páginas.
 
 ## Idioma y tema
 
