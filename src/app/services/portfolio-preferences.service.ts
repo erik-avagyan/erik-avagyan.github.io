@@ -4,7 +4,7 @@ import { Injectable, computed, effect, inject, signal } from '@angular/core';
 export type Language = 'es' | 'en';
 
 const TRANSLATIONS = {
-  'meta.title': { es: 'Erik Avagyan | Ingeniero de Software', en: 'Erik Avagyan | Software Engineer' },
+  'meta.title': { es: 'Erik Avagyan | Software Engineer', en: 'Erik Avagyan | Software Engineer' },
   'meta.description': { es: 'Portfolio de Erik Avagyan, ingeniero de software especializado en aplicaciones web, de escritorio y móviles.', en: 'Portfolio of Erik Avagyan, a software engineer specializing in web, desktop, and mobile applications.' },
   'nav.label': { es: 'Navegación principal', en: 'Main navigation' },
   'nav.experience': { es: 'Experiencia', en: 'Experience' },
@@ -203,5 +203,5 @@ export class PortfolioPreferencesService {
 
   private readTheme(): 'dark' | 'light' {
     return localStorage.getItem(this.themeKey) === 'light' ? 'light' : 'dark';
-  }
+   }
 }
