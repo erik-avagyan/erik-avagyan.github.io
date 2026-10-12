@@ -28,6 +28,7 @@ export interface Project {
   description: TranslationId;
   longDescription: TranslationId;
   tags: string[];
+  images: string[];
   githubUrl?: string;
   demoUrl?: string;
   featured: boolean;

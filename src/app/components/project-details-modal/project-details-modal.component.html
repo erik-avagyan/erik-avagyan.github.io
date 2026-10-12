@@ -3,7 +3,7 @@
     role="dialog"
     aria-modal="true"
     aria-labelledby="project-modal-title"
-    class="relative w-full max-w-lg space-y-4 rounded-2xl border border-white/10 bg-[#161618] p-6 shadow-2xl sm:p-8"
+    class="relative max-h-[92vh] w-full max-w-4xl space-y-4 overflow-y-auto rounded-2xl border border-white/10 bg-[#161618] p-5 shadow-2xl sm:p-8"
     (click)="$event.stopPropagation()">
     <button
       (click)="closed.emit()"
@@ -12,9 +12,44 @@
       <span aria-hidden="true">✕</span>
     </button>
 
-    <span class="font-mono text-xs text-[#2997ff]">{{ i18n.translate(project.category === 'Web' ? 'projects.category.web' : 'projects.category.mobile') }}</span>
-    <h2 id="project-modal-title" class="text-2xl font-bold text-white">{{ project.title }}</h2>
-    <p class="text-xs font-medium text-[#86868b]">{{ i18n.translate(project.subtitle) }}</p>
+    <header class="pr-8">
+      <span class="font-mono text-xs text-[#2997ff]">{{ i18n.translate(project.category === 'Web' ? 'projects.category.web' : 'projects.category.mobile') }}</span>
+      <h2 id="project-modal-title" class="mt-1 text-2xl font-bold text-white">{{ project.title }}</h2>
+      <p class="mt-1 text-xs font-medium text-[#86868b]">{{ i18n.translate(project.subtitle) }}</p>
+    </header>
+
+    @if (project.images.length > 0) {
+      <div class="relative overflow-hidden rounded-xl border border-white/10 bg-black/20">
+        <div class="flex h-[min(55vh,34rem)] items-center justify-center p-3 sm:p-5">
+          <img
+            [src]="project.images[activeImageIndex()]"
+            [alt]="currentImageAlt"
+            class="h-full w-full object-contain">
+        </div>
+
+        @if (project.images.length > 1) {
+          <button
+            type="button"
+            (click)="showPreviousImage()"
+            class="project-gallery-control absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/60 text-xl text-white transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2997ff]"
+            [attr.aria-label]="i18n.translate('projectModal.previousImage')">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <button
+            type="button"
+            (click)="showNextImage()"
+            class="project-gallery-control absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/60 text-xl text-white transition-colors hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2997ff]"
+            [attr.aria-label]="i18n.translate('projectModal.nextImage')">
+            <span aria-hidden="true">›</span>
+          </button>
+        }
+
+        <span class="project-gallery-control absolute bottom-3 right-3 rounded-full bg-black/65 px-3 py-1 text-xs font-medium text-white" aria-live="polite">
+          {{ activeImageIndex() + 1 }} / {{ project.images.length }}
+        </span>
+      </div>
+    }
+
     <p class="text-sm leading-relaxed text-[#86868b]">{{ i18n.translate(project.longDescription) }}</p>
 
     <div class="pt-2">

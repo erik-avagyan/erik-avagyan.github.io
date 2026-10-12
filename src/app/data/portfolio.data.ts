@@ -77,6 +77,13 @@ export const PROJECTS: Project[] = [
     subtitle: 'projects.liber.subtitle',
     description: 'projects.liber.description',
     longDescription: 'projects.liber.longDescription',
+    images: [
+      '/liber/moviespage.png',
+      '/liber/movie1.png',
+      '/liber/homerecomendations.png',
+      '/liber/chat.png',
+      '/liber/admindashboard.png'
+    ],
     tags: ['Laravel', 'PHP', 'PostgreSQL', 'Bootstrap', 'JavaScript', 'HTML', 'CSS'],
     featured: true,
     category: 'Web'
@@ -87,6 +94,13 @@ export const PROJECTS: Project[] = [
     subtitle: 'projects.caishen.subtitle',
     description: 'projects.caishen.description',
     longDescription: 'projects.caishen.longDescription',
+    images: [
+      '/caishen/sharedparticipants.png',
+      '/caishen/sharedexpenseslist.png',
+      '/caishen/incomes.png',
+      '/caishen/expensedetails.png',
+      '/caishen/debts.png'
+    ],
     tags: ['Ionic', 'React', 'TypeScript', 'Supabase', 'Lambda'],
     featured: true,
     category: 'Mobile'

@@ -227,8 +227,8 @@ const TRANSLATIONS = {
     en: "Open GitHub repository",
   },
   "projects.details": {
-    es: "Ver detalles técnicos",
-    en: "View technical details",
+    es: "Ver detalles",
+    en: "View details",
   },
   "projects.liber.subtitle": {
     es: "Red social de cine",
@@ -440,6 +440,9 @@ const TRANSLATIONS = {
     es: "Ver Código en GitHub",
     en: "View code on GitHub",
   },
+  "projectModal.previousImage": { es: "Imagen anterior", en: "Previous image" },
+  "projectModal.nextImage": { es: "Imagen siguiente", en: "Next image" },
+  "projectModal.screenshot": { es: "Captura", en: "Screenshot" },
 } as const;
 
 export type TranslationId = keyof typeof TRANSLATIONS;

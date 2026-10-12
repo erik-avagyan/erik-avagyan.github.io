@@ -146,6 +146,10 @@ body {
   color: #fff !important;
 }
 
+.light-theme .project-gallery-control {
+  color: #fff !important;
+}
+
 button,
 input {
   font: inherit;
