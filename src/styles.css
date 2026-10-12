@@ -4,30 +4,74 @@
 
 html {
   scroll-behavior: smooth;
-  background: #000;
+  background: #080b13;
 }
 
 html[data-theme='light'] {
-  background: #f5f5f7;
+  background: #f4f7fc;
   color-scheme: light;
 }
 
 html[data-theme='dark'] {
+  background: #080b13;
   color-scheme: dark;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  min-height: 100vh;
+}
+
+.portfolio-shell {
+  --page-background: #080b13;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgb(41 151 255 / 12%), transparent 38%),
+    radial-gradient(ellipse at 88% 35%, rgb(105 73 220 / 9%), transparent 42%),
+    linear-gradient(155deg, #080b13 0%, #0b1220 48%, #080b13 100%);
+  background-color: var(--page-background);
+}
+
+.portfolio-shell.light-theme {
+  --page-background: #f4f7fc;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgb(41 151 255 / 12%), transparent 38%),
+    radial-gradient(ellipse at 88% 35%, rgb(126 103 220 / 9%), transparent 42%),
+    linear-gradient(155deg, #f4f7fc 0%, #eef3fb 48%, #f8f9fc 100%);
+}
+
+.pointer-glow {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    460px circle at var(--pointer-x, 50vw) var(--pointer-y, 35vh),
+    rgb(41 151 255 / 13%),
+    transparent 72%
+  );
+  opacity: 0.9;
+  transition: background-position 120ms ease-out;
+}
+
+.light-theme .pointer-glow {
+  background: radial-gradient(
+    500px circle at var(--pointer-x, 50vw) var(--pointer-y, 35vh),
+    rgb(41 151 255 / 15%),
+    transparent 72%
+  );
 }
 
 .light-theme {
-  background-color: #f5f5f7 !important;
+  background-color: #f4f7fc !important;
   color: #1d1d1f !important;
 }
 
 .light-theme [class~='bg-black'] {
-  background-color: #f5f5f7 !important;
+  background-color: #f4f7fc !important;
 }
 
 .light-theme [class~='bg-[#161618]'],
@@ -87,4 +131,14 @@ body {
 button,
 input {
   font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .pointer-glow {
+    display: none;
+  }
 }

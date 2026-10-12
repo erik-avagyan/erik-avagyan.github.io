@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { PortfolioPreferencesService } from './services/portfolio-preferences.service';
 import { Project } from './models/portfolio.models';
 import { ContactModalComponent } from './components/contact-modal/contact-modal.component';
@@ -31,12 +32,13 @@ import { SkillsSectionComponent } from './components/skills-section/skills-secti
   ],
   template: `
     <div
-      class="min-h-screen bg-black pb-24 font-sans text-[#f5f5f7] antialiased selection:bg-[#2997ff] selection:text-white"
+      class="portfolio-shell min-h-screen pb-24 font-sans text-[#f5f5f7] antialiased selection:bg-[#2997ff] selection:text-white"
       [class.light-theme]="preferences.theme() === 'light'">
+      <div class="pointer-glow" aria-hidden="true"></div>
       <app-navbar
         (contactRequested)="contactModalOpen.set(true)"
         (resumeRequested)="resumeModalOpen.set(true)" />
-      <main>
+      <main class="relative z-10">
         <app-hero
           (contactRequested)="contactModalOpen.set(true)"
           (resumeRequested)="resumeModalOpen.set(true)" />
@@ -62,8 +64,20 @@ import { SkillsSectionComponent } from './components/skills-section/skills-secti
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
+  private readonly document = inject(DOCUMENT);
   readonly preferences = inject(PortfolioPreferencesService);
   readonly activeProject = signal<Project | null>(null);
   readonly contactModalOpen = signal(false);
   readonly resumeModalOpen = signal(false);
+
+  @HostListener('document:pointermove', ['$event'])
+  trackPointer(event: PointerEvent): void {
+    if (event.pointerType === 'touch') {
+      return;
+    }
+
+    const root = this.document.documentElement;
+    root.style.setProperty('--pointer-x', `${event.clientX}px`);
+    root.style.setProperty('--pointer-y', `${event.clientY}px`);
+  }
 }
