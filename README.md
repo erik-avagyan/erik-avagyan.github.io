@@ -11,6 +11,31 @@ npm run watch
 
 La aplicación estará disponible en `http://localhost:4200/`. El servidor observa cambios y recarga el navegador automáticamente. También puedes usar `npm start`, que inicia el mismo servidor. Para generar la versión de producción, ejecuta `npm run build`.
 
+## Publicar en GitHub Pages
+
+El proyecto incluye el comando `npm run deploy`. Genera el build optimizado de producción y publica el contenido de `dist/portfolio/browser` en la rama `main`. La web se sirve desde la raíz del dominio personal `https://erik-avagyan.github.io/`, por eso el build usa `--base-href /`.
+
+### Configuración inicial
+
+1. En GitHub, abre **Settings → Pages** del repositorio `erik-avagyan/erik-avagyan.github.io`.
+2. En **Build and deployment**, selecciona **Deploy from a branch**, rama `main` y carpeta `/(root)`.
+3. Asegúrate de tener permisos para publicar en el repositorio y de que Git esté autenticado en este equipo.
+
+### En cada publicación
+
+Desde la rama que contiene el código fuente (actualmente `develop`):
+
+```bash
+git pull
+npm install
+npm run build
+npm run deploy
+```
+
+`npm run build` es una comprobación previa opcional; `npm run deploy` ya ejecuta el build de producción antes de publicar. Al terminar, GitHub Pages sirve la actualización en `https://erik-avagyan.github.io/`; puede tardar unos minutos en estar disponible.
+
+**Importante:** `npm run deploy` publica el resultado compilado en `main`. Mantén el código fuente en `develop` (o en otra rama fuente) y no uses `main` para trabajar en el código de la aplicación, porque esa rama se reserva para los archivos publicados.
+
 ## Estructura
 
 - `src/app/components/`: componentes independientes para cada sección, navegación y modales.
